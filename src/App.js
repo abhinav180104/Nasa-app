@@ -1,4 +1,4 @@
-// src/App.js
+
 
 import React from 'react';
 import NasaImageSearch from './components/NasaImageSearch';
@@ -13,7 +13,7 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<NasaImageSearch />} />
-          {/* Other routes go here */}
+          {}
         </Routes>
       </div>
     </Router>

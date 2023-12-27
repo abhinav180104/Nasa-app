@@ -1,4 +1,4 @@
-// src/components/NasaImageSearch.js
+
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -10,7 +10,6 @@ const NasaImageSearch = () => {
   const [isSearchBarActive, setIsSearchBarActive] = useState(false);
 
   useEffect(() => {
-    // Fetch trending images when the component mounts
     const fetchTrendingImages = async () => {
       try {
         const response = await axios.get(
@@ -24,7 +23,7 @@ const NasaImageSearch = () => {
     };
 
     fetchTrendingImages();
-  }, []); // Empty dependency array to trigger the effect only once on mount
+  }, []); 
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -32,7 +31,6 @@ const NasaImageSearch = () => {
       return;
     }
 
-    // Fetch suggestions based on the current query
     const fetchSuggestions = async () => {
       try {
         const response = await axios.get(
@@ -59,7 +57,7 @@ const NasaImageSearch = () => {
       );
 
       setImages(response.data.collection.items || []);
-      setSuggestions([]); // Close the suggestions dropdown
+      setSuggestions([]);
     } catch (error) {
       console.error('Error fetching images:', error);
     }
@@ -83,7 +81,7 @@ const NasaImageSearch = () => {
 
   const handleBlur = () => {
     setIsSearchBarActive(false);
-    setSuggestions([]); // Close the suggestions dropdown
+    setSuggestions([]); 
   };
 
   return (
